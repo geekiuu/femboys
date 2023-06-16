@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>femboys</title>
+</head>
+<body>
+
+<h1>
+    <pre>
+        Are you looking for the hottest femboys in the area?
+        Wait no more!!!
+        <a href="raw.html">Click on this text to find top femboys in</a>
+    </pre>
+</h1>
+
+<h2> <pre>
+<span id="country"></span>
+</h2></pre>
+
+<style>
+body {
+    background-color: violet;
+    background-image: url(https://cdn.discordapp.com/attachments/1116074652041748530/1119281793888157736/752076EE-031B-4B60-87F3-1A621B3A596D.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-size: large;
+    color: rgb(141, 10, 113);
+    text-align: center;
+}
+
+h2 {
+    font-size: large;
+    color: rgb(0, 247, 255);
+    text-align: center;
+    text-decoration: none;
+}
+
+
+
+</style>
+
+<script>
+    // Function to update the country element with the visitor's country
+    function updateCountry(country) {
+        var countryElement = document.getElementById('country');
+        countryElement.textContent = country;
+    }
+
+    // Retrieve the visitor's location information using the ipapi.co API
+    function getVisitorCountry() {
+        fetch('https://ipapi.co/json/')
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch IP geolocation data.');
+                }
+            })
+            .then(function(data) {
+                updateCountry(data.country_name);
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+    }
+
+    // Call the function to get the visitor's country when the page loads
+    window.onload = function() {
+        getVisitorCountry();
+    };
+</script>
+
+</body>
+</html>
